@@ -1,4 +1,4 @@
-electonica
+Electrónica
 ==========
 
-Proyecto final de La PC Como Controladora de Procesos
+TODO: Hacer el readme.
