@@ -1,0 +1,11 @@
+phases:
+    ph1 = 90 90 
+	ph2 = 0 0
+program:
+	loop 2 times
+		loop 2 times
+		p1(ph1)
+		p2(ph2)
+		endloop
+	endloop
+	acquire

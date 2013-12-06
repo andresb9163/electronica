@@ -1,0 +1,78 @@
+# Project: Project1
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = 
+OBJ  = ad.o bstrlib.o dds.o f_glist.o instruction.o instruction_list.o instruction_sheet.o instruction_stack.o interface.o lexer.o lpt_windows.o main.o main_functions.o parser.o phase.o pp2.o util.o $(RES)
+LINKOBJ  = ad.o bstrlib.o dds.o f_glist.o instruction.o instruction_list.o instruction_sheet.o instruction_stack.o interface.o lexer.o lpt_windows.o main.o main_functions.o parser.o phase.o pp2.o util.o $(RES)
+LIBS =  -L"C:/GTK/lib" ../../../../../GTK/lib/glib-2.0.lib  -g3 
+INCS =  -I"C:/GTK/include"  -I"C:/GTK/include/glib-2.0"  -I"C:/GTK/lib/glib-2.0/include" 
+CXXINCS =  -I"C:/GTK/include"  -I"C:/GTK/include/glib-2.0"  -I"C:/GTK/lib/glib-2.0/include" 
+BIN  = Project1.exe
+CXXFLAGS = $(CXXINCS)   -g3
+CFLAGS = $(INCS)   -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Project1.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "Project1.exe" $(LIBS)
+
+ad.o: ad.c
+	$(CC) -c ad.c -o ad.o $(CFLAGS)
+
+bstrlib.o: bstrlib.c
+	$(CC) -c bstrlib.c -o bstrlib.o $(CFLAGS)
+
+dds.o: dds.c
+	$(CC) -c dds.c -o dds.o $(CFLAGS)
+
+f_glist.o: f_glist.c
+	$(CC) -c f_glist.c -o f_glist.o $(CFLAGS)
+
+instruction.o: instruction.c
+	$(CC) -c instruction.c -o instruction.o $(CFLAGS)
+
+instruction_list.o: instruction_list.c
+	$(CC) -c instruction_list.c -o instruction_list.o $(CFLAGS)
+
+instruction_sheet.o: instruction_sheet.c
+	$(CC) -c instruction_sheet.c -o instruction_sheet.o $(CFLAGS)
+
+instruction_stack.o: instruction_stack.c
+	$(CC) -c instruction_stack.c -o instruction_stack.o $(CFLAGS)
+
+interface.o: interface.c
+	$(CC) -c interface.c -o interface.o $(CFLAGS)
+
+lexer.o: lexer.c
+	$(CC) -c lexer.c -o lexer.o $(CFLAGS)
+
+lpt_windows.o: lpt_windows.c
+	$(CC) -c lpt_windows.c -o lpt_windows.o $(CFLAGS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+main_functions.o: main_functions.c
+	$(CC) -c main_functions.c -o main_functions.o $(CFLAGS)
+
+parser.o: parser.c
+	$(CC) -c parser.c -o parser.o $(CFLAGS)
+
+phase.o: phase.c
+	$(CC) -c phase.c -o phase.o $(CFLAGS)
+
+pp2.o: pp2.c
+	$(CC) -c pp2.c -o pp2.o $(CFLAGS)
+
+util.o: util.c
+	$(CC) -c util.c -o util.o $(CFLAGS)

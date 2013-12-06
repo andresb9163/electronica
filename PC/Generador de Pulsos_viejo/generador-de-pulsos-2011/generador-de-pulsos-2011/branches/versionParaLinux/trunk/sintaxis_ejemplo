@@ -1,0 +1,21 @@
+phases:
+    ph1 = 0 45 90
+    ph2 = 180 360
+    
+program:
+    d1
+    
+    loop  3 times
+        d7
+        p3(ph1)
+    endloop
+    
+    loop  5 times phases_shift
+        d7
+        p3(ph1)
+    endloop
+    
+    p1(ph2)
+    
+    
+    acquire

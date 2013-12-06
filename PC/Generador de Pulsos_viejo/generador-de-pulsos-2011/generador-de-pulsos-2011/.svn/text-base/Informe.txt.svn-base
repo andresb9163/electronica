@@ -1,0 +1,23 @@
+		PROYECTO FINAL, LA PC COMO CONTROLADORA DE PROCESOS.
+			SOFTWARE PARA MANEJO DE SISTEMA DE CONTROL 
+			 DE TAREAS DE ROSNANCIA MAGNETICA NUCLEAR
+						     2011
+
+INTEGRANTES:
+	GOMEZ ELFI ADRIAN
+	VOLARIK MARIANO
+	MONTI RAUL
+	
+PROFESORES:
+	ZANINETTI WALTER
+	MARQUEZ CARLOS
+	
+	
+INTRODUCCION:
+	Se busca lograr un programa que controle un dispositvo compuesto por 
+	los sigientes elementos: un generador de pulsos (pp2), un coversor 
+	A/D (modelo AD9852), un sintetizador digital de frecuencias (dds).
+	El programador de pulsos dirigirá el funcionamiento del resto de las
+	partes componentes del sistema. La comunicación se logra vía el puerto 
+	paralelo. El software se usará sobre una pc con sistema operativo 
+	Windows XP sp3.

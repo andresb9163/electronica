@@ -1,0 +1,8 @@
+phases:
+    ph1 = 0 45 90
+	ph2 = 30 120 270
+program:
+		loop 7 times phases_shift
+		p1(ph2)
+		endloop
+		p2(ph1)

@@ -1,0 +1,8 @@
+*librerias:
+C:\Documents and Settings\Lab\Escritorio\generadorDePulsos\GTK\lib
+*includes:
+C:\Documents and Settings\Lab\Escritorio\generadorDePulsos\GTK\include
+C:\Documents and Settings\Lab\Escritorio\generadorDePulsos\GTK\lib\glib-2.0\include
+C:\Documents and Settings\Lab\Escritorio\generadorDePulsos\GTK\include\glib-2.0
+*en argumentos para el programa en linker cargar el .lib
+*el c:/windows/system copiar la libreria libglib-2.0-0.dll

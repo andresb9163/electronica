@@ -1,0 +1,209 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/48/branches/versionParaLinux/trunk
+END
+interface.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/interface.c
+END
+phase.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/phase.c
+END
+parser.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/parser.h
+END
+interface.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/interface.h
+END
+phase.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/phase.h
+END
+instruction_stack.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/instruction_stack.c
+END
+instruction_sheet.c
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/instruction_sheet.c
+END
+dds.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/dds.c
+END
+instruction_stack.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/instruction_stack.h
+END
+instruction_list.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/instruction_list.c
+END
+util.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/util.c
+END
+instruction_sheet.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/instruction_sheet.h
+END
+lpt_linux.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/lpt_linux.c
+END
+dds.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/dds.h
+END
+instruction_list.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/instruction_list.h
+END
+instruction.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/instruction.c
+END
+util.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/util.h
+END
+lpt_linux.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/lpt_linux.h
+END
+instruction.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/instruction.h
+END
+config_conf
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/config_conf
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/Makefile
+END
+sintaxis_ejemplo
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/sintaxis_ejemplo
+END
+pp2.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/pp2.c
+END
+informe.odt
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/informe.odt
+END
+pp2.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/pp2.h
+END
+lexer.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/lexer.c
+END
+gui_parser_temp.txt
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/gui_parser_temp.txt
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/main.c
+END
+ad.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/ad.c
+END
+lexer.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/lexer.h
+END
+f_glist.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/f_glist.c
+END
+ad.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/ad.h
+END
+parser.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/parser.c
+END
+f_glist.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/48/branches/versionParaLinux/trunk/f_glist.h
+END

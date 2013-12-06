@@ -1,0 +1,68 @@
+-------------BOTON AVANZAR---------------------
+ int             val_min, val_max;               //Rango a graficar
+
+        val_min=StrToInt(TxtMin->Text);
+        val_max=StrToInt(TxtMax->Text);
+        //Desplazamiento hacia la derecha de 100 píxeles
+        val_min=val_min+100;
+        val_max=val_max+100;
+
+        //Chequeo de condiciones en el borde superior
+        if(val_max>StrToInt(CmbBarrido->Text)*1024)
+        {
+                val_max=StrToInt(CmbBarrido->Text)*1024;
+        }
+        TxtMax->Text=val_max;
+        TxtMin->Text=val_min;
+
+        //Actualiza la imagen
+        dibuja();
+
+        Log("Navegación: posición siguiente");
+
+-------------BOTON AVANZAR HASTA EL FINAL----------
+TxtMax->Text=StrToInt(CmbBarrido->Text)*1024;
+        TxtMin->Text=(StrToInt(CmbBarrido->Text)*1024)-1100;
+        if(StrToInt(TxtMin->Text)<0)
+        {
+                TxtMin->Text="0";
+        }
+        //Actualiza la imagen
+        dibuja();
+
+        Log("Navegación: última posición");
+
+-------------BOTON RETROCEDER----------------------
+int             val_min, val_max;               //Rango a graficar
+
+        val_min=StrToInt(TxtMin->Text);
+        val_max=StrToInt(TxtMax->Text);
+        //Desplazamiento hacia la izquierda de 100 píxeles
+        val_min=val_min-100;
+        val_max=val_max-100;
+
+        //Chequeo de condiciones en el borde inferior
+        if(val_min<0)
+        {
+                val_min=0;
+        }
+        TxtMax->Text=val_max;
+        TxtMin->Text=val_min;
+
+        //Actualiza la imagen
+        dibuja();
+
+        Log("Navegación: posición anterior");
+
+-------------BOTON RETROCEDER HASTA EL FINAL-------
+TxtMin->Text="0";
+        TxtMax->Text="1100";
+        if(StrToInt(TxtMax->Text)>StrToInt(CmbBarrido->Text)*1024)
+        {
+                TxtMax->Text=StrToInt(CmbBarrido->Text)*1024;
+        }
+
+        //Actualiza la imagen
+        dibuja();
+
+        Log("Navegación: primera posición");
