@@ -16,7 +16,7 @@ INVALID_HANDLE_VALUE = c_void_p(-1).value
 
 class mpusb (object):
     def __init__ (self):
-        p = find_library ("mpusbapi")
+        p = find_library ("mpusbapi.dll")
         if not p:
             raise LookupError ("mpusbapi.dll not found")
         self.lib = WinDLL (p)
