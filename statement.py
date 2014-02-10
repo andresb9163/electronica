@@ -1,15 +1,11 @@
+############################################
+# TODO: Comment main module functionality  #
+############################################
+
 class Statement (object):
     def vars (self):
         """
-        Free variables that need to be setted before the code can be compiled.
-        Returns: set of strings
-        """
-        raise NotImplementedError ()
-    def compile (self, values):
-        """
-        Compiles a statment to machine code, replace vars with actual values
-        stored on the input values.
-        Returns: hex code.
+        TODO: Comment method
         """
         raise NotImplementedError ()
     def __str__ (self):
@@ -47,8 +43,6 @@ class Acquire (Statement):
         return set ()
     def __pp__ (self, il):
         return self.__indent__ (il) + "acquire"
-    def compile (self, values):
-        return '0x00'
 
 class Pulse (Statement):
     icode = 2

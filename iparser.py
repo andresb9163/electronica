@@ -1,3 +1,7 @@
+############################################
+# TODO: Comment main module functionality  #
+############################################
+
 from statement import *
 from pyparsing import Word, alphas, alphanums, nums, Forward, Group, Combine,\
                       Literal, delimitedList, OneOrMore, Optional
