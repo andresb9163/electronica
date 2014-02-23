@@ -9,7 +9,7 @@ class Interface (object):
     def __init__ (self):
         self.lib = mpusb ()
         self.rxbuffer = ""
-        # CAMBIAAAAAAAAAR
+        # The transmitions are always 64 bytes long
         self.txbuffer = array('B', [0x00] * 64)
         self.payload  = 2
         self.paq = 0

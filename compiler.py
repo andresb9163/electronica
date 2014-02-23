@@ -13,7 +13,7 @@ _PP2_INSTRUCTIONS = [_PP2_CONTINUE, _PP2_LOOP, _PP2_RETL, _PP2_END]
 
 def compile (program, vars, phase=None):
     '''
-    Compiles the a program
+    Compiles a program
     Returns a list of 8-bit hex words
     =================================
     program: statement.Program
@@ -32,8 +32,7 @@ def __unroll_loop (self, loop):
     pass
 
 class Instruction (object):
-    def __init__ (self, time=0, icode=_PP2_CONTINUE, loopl=0,\
-                  data=0,       epat=[False] * 16):
+    def __init__ (self, time, icode, epat=[False] * 16, loopl=0, data=0):
         '''
         Creates a new instruction
         =========================
@@ -57,28 +56,27 @@ class Instruction (object):
         if data < 0 or data >= 2 ** 11:
             raise CompilerInternalError ("data")
         self.epat  = epat
-        if len (epat) != 16: 
+        if len (epat) != 16:
             raise CompilerInternalError ("epat")
 
-    def code (self):
+    def encode (self):
         '''
-        Returns a 64 bit bin representing the instruction
+        Returns a 8-len int list representing the instruction
         '''
-        time  = (format (self.time,  'b')).rjust (32,    '0')
-        icode = (format (self.icode, 'b')).rjust (3,     '0')
-        loopl = (format (self.loopl, 'b')).rjust (2,     '0')
-        data  = (format (self.data,  'b')).rjust (11,    '0')
+        time  = (format (self.time,  'b')).rjust (32, '0')
+        icode = (format (self.icode, 'b')).rjust (3,  '0')
+        loopl = (format (self.loopl, 'b')).rjust (2,  '0')
+        data  = (format (self.data,  'b')).rjust (11, '0')
         epat  = ''.join (map (lambda x: '1' if x else '0', self.epat))
-        
+        # Binary word representing the instruction
         word = epat + data + loopl + icode + time
         if len (word) != 64:
             raise CompilerInternalError ("word")
-        
-        return word
+        # TODO: Make this return a list of 8 elements
+        return [int (word [i * 8: (i+1) * 8]) for i in range (8)]
 
 # Compiler Errors
-class CompilerError (Exception):
-    pass
+class CompilerError (Exception): pass
 
 class CompilerTimeError (CompilerError):
     def __init__ (self):
