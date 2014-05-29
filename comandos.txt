@@ -1,0 +1,94 @@
+;
+;************* comandos de DDS ******************
+;
+;hay tres tipos de comandos.
+;Control: está compuesto por: ['C'][dirección del DDS][WORD de Control]
+;Frecuencia: está compuesto por:['F'][dirección del DDS][WORD_1][WORD_2]
+;[WORD_3][WORD_4]
+;Fase: está compuesto por: ['P'][dirección del DDS][WORD_1][WORD_2]
+;
+;Los comandos son transmitidos por la PC en un string en el orden indicado,
+;es decir, el primer byte indica si es Comando, Frecuencia ó Phase, el segundo
+;byte es la dirección del DDS, el tercer y cuarto byte es el primer word y asi
+;sucesivamente segun el comando.
+;El string es recibido por el microcontrolador y es transferido al DDS utilizando
+;las subrutinas "addr" y "tx_word" omitiendo el primer byte ('C', 'F' o 'P').
+;
+;
+control   	EQU    'C'    ;comando de control.
+frec    	EQU    'F'    ;cargar una frecuencia.
+phase    	EQU    'P'    ;cargar unja fase.
+
+;
+;************* comandos del PP2 ******************
+;El PP2 (Programador de Pulsos 2)está compuesto por un procesador dedicado
+;de 64 bits, lógica de control y memoria de programa (RAM) de 512x64.
+;
+;Los comandos son:
+;rst_micro: está compuesto por: ['R'][dirección pp2_control][0x02]
+;mod_carga: está compuesto por:['c'][dirección pp2_control][0x03]
+;mod_micro: está compuesto por: ['M'][dirección pp2_control][0x00]
+;El siguiente comando dispara un programa de secuencia de pulsos cargada en el procesador
+;disp_sec: está compuesto por: ['D'][dirección pp2_control][0x00][0x80]
+;El siguiente comando almacena una línea de programa en el registro intermedio del procesador
+;almacenar: está compuesto por: ['A'][dirección pp2_inst][byte_0].....[byte_7]
+;El siguiente comando transfiere el registro intermedio a la memoria de programa del procesador
+;transf: está compuesto por: ['T'][dirección pp2_trans][0x00]
+;El siguiente comando devuelve el estado del PP2
+;pp2_stat: está compuesto por: ['E'][dirección pp2_control][0x00]
+;el comando devuelve un byte indicando el estado. El byte de estado es
+;el primer byte del sting recibido.
+;
+;
+;Los comandos son transmitidos por la PC en un string en el orden indicado,
+;es decir, el primer byte indica el comando, el segundo byte es la dirección
+;corresppondiente y sucesivamente los bytes de datos segun el comando.
+;El string es recibido por el microcontrolador y es transferido al PP2 utilizando
+;las subrutinas "addr" y las que corresponda segun el comando omitiendo el primer
+;byte ('R', 'C', etc.).
+;comandos del PP2
+;
+rst_micro    	EQU    'R'    ;reset microprocesador
+mod_carga    	EQU    'c'    ;modo carga (el PP2 se pone en modo carga)
+mod_micro    	EQU    'M'    ;modo Micro (el PP2 se pone en modo microprocesador)
+disp_sec    	EQU    'D'    ;dispara un programa de secuencia de pulsos.
+almacenar    	EQU    'A'    ;almacena una línea de programa en el registro
+transf    	EQU    'T'    ;transfiere el registro a la memoria
+pp2_stat    	EQU    'E'    ;obtener el estado del PP2.
+;
+;********* comandos del conversor A/D ***********
+;El A/D (Conversor Analógico digital de 12 bits de dos canales)tiene
+;una RAM buffer de 128KBytes cada uno. Se puede configurar el tiempo de muestreo,
+;la longitud de buffer y el modo de adquisición (contínuo ó modulado). El disparo
+;de un ciclo de adquisición se realiza por una señal proveniente del PP2 y el final
+;de ciclo de adquisición se puede detectar por software a travez del registro de
+;estado del A/D ó por hardware con una señal prevista para tal fin (EOC).
+;
+;Los comandos son:
+;cntr_ad: está compuesto por: ['r'][dirección ad_control][byte de control]
+;Los bits b6,b5,b4 indican el tamaño del buffer de adquisición.
+;000 = 1K, 001 = 2K, 010 = 4K, 011 = 8K, 100 = 16K, 101 = 32K, 110 = 64K, 111 = 128K,
+;El tamaño del buffer se puede expresar en número de bloques de 256bytes, entoces
+;tendremos: 1K = 4 bloques, 2K = 8 bloques, 4K = 16 bloques, 8K = 32 bloques,
+;16K = 64 bloques, 32K = 128 bloques, 64K = 256 bloques, 128K = 512 bloques.
+;
+;
+;ad_stat: está compuesto por:['S'][dirección ad_control][byte]
+;h_adstat: está compuesto por:['h'][dirección ad_control][byte]
+;inter_ts: está compuesto por: ['t'][dirección ad_ts][byte ts]
+;trans_ts: está compuesto por: ['W'][dirección transferir_ts][0x00]
+;leer_can: está compuesto por: ['X'][dirección desde donde transferir ][0x00]. Este comando
+;tiene como respuesta n bloques de dato
+;
+;
+;comandos del AD
+;
+cntr_ad    	EQU	'r'	;setear byte de control del AD
+ad_stat    	EQU	'S'	;leer el estado del AD por software.
+h_adstat    	EQU	'h'	;leer el estado del AD por hardware
+inter_ts    	EQU	't'	;fijar el intervalo de muestreo delta t.
+trans_ts    	EQU	'W'	;transferir el intervalo de muestreo.
+;leer_can		EQU	'X'	;leer canal.
+direc		EQU	'X'	;pasar una dirección
+bloque		EQU	'B'	;solicitar un bloque
+;
