@@ -1,3 +1,5 @@
+// Copyright 2014 FaMAF
+
 //---------------------------------------------------------------------------
 #ifndef MainH
 #define MainH
@@ -5,7 +7,6 @@
 #include <vcl\sysutils.hpp>
 #include <vcl\windows.hpp>
 #include <vcl\messages.hpp>
-#include <vcl\sysutils.hpp>
 #include <vcl\classes.hpp>
 #include <vcl\graphics.hpp>
 #include <vcl\controls.hpp>
@@ -20,11 +21,11 @@
 #include <StdCtrls.hpp>
 #include <ComCtrls.hpp>
 #include <Dialogs.hpp>
-
-#include "usb.h"
-#include "grafico.h"
 #include <ExtCtrls.hpp>
 #include <Buttons.hpp>
+
+#include "./usb.h"
+#include "./grafico.h"
 
 
 enum TADModoAdquisicion {mContinua, mModulada};

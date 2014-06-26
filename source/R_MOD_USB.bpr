@@ -4,12 +4,12 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="R_MOD_USB.exe"/>
-    <OBJFILES value="R_MOD_USB.obj Main.obj pp2.obj USB.obj grafico.obj"/>
+    <OBJFILES value="R_MOD_USB.obj main.obj pp2.obj usb.obj grafico.obj"/>
     <RESFILES value="R_MOD_USB.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
     <DEFFILE value=""/>
-    <RESDEPEN value="$(RESFILES) Main.dfm"/>
+    <RESDEPEN value="$(RESFILES) main.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value=""/>
     <SPARELIBS value="rtl.lib vcl.lib DLPortIO.lib"/>
@@ -52,9 +52,9 @@
   <FILELIST>
       <FILE FILENAME="R_MOD_USB.cpp" FORMNAME="" UNITNAME="R_MOD_USB" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="R_MOD_USB.res" FORMNAME="" UNITNAME="R_MOD_USB" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="Main.cpp" FORMNAME="MainForm" UNITNAME="Main" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="main.cpp" FORMNAME="MainForm" UNITNAME="main" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="pp2.cpp" FORMNAME="" UNITNAME="pp2" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="USB.cpp" FORMNAME="" UNITNAME="USB" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="usb.cpp" FORMNAME="" UNITNAME="usb" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="grafico.cpp" FORMNAME="" UNITNAME="grafico" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
@@ -64,9 +64,9 @@
 [Version Info]
 IncludeVerInfo=0
 AutoIncBuild=0
-MajorVer=1
-MinorVer=0
-Release=0
+MajorVer=0
+MinorVer=95
+Release=1234
 Build=0
 Debug=0
 PreRelease=0

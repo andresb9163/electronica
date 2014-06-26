@@ -5,7 +5,7 @@
 
 #include "./mmsystem.h"
 #include "./pp2.h"
-#include "./Main.h"
+#include "./main.h"
 #include "./usb.h"
 
 #pragma resource "*.dfm"
