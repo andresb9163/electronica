@@ -1,0 +1,17 @@
+# IDE files
+*.~*~
+*.local
+*.identcache
+__history
+
+# C++ Builder Compiler output files
+*.bpi
+*.obj
+*.lib
+*.hpp
+*.i
+*.il?
+*.#??
+*.pbi
+*.dfm
+*.tds
