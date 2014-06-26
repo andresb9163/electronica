@@ -1,6 +1,5 @@
 // Copyright 2014 FaMAF
 
-//---------------------------------------------------------------------------
 #include <vcl\vcl.h>
 #pragma hdrstop
 
@@ -9,8 +8,6 @@
 #include "./Main.h"
 #include "./usb.h"
 
-
-//---------------------------------------------------------------------------
 #pragma resource "*.dfm"
 TMainForm *MainForm;
 pp2             cont_pp2;
@@ -155,7 +152,7 @@ void __fastcall TMainForm::ADQUIRIRClick(TObject *Sender) {
 
     pedir_buffer();
 }
-//---------------------------------------------------------------------------
+
 
 void __fastcall TMainForm::ADSetConfig(int modoAdq, int k, int reset, int modo) {
     int config = 0x00;
@@ -814,7 +811,7 @@ void __fastcall TMainForm::FASE_3Click(TObject *Sender) {
         ShowMessage("ATENCION Desactivar para cambiar fase");
     }
 }
-//---------------------------------------------------------------------------
+
 
 void __fastcall TMainForm::FASE_4Click(TObject *Sender) {
     if (!activado) {
@@ -858,5 +855,4 @@ void __fastcall TMainForm::FASE_4Click(TObject *Sender) {
         ShowMessage("ATENCION Desactivar para cambiar fase");
     }
 }
-//---------------------------------------------------------------------------
 
