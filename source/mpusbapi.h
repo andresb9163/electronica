@@ -37,7 +37,7 @@
 #ifndef _MPUSBAPI_H_
 #define _MPUSBAPI_H_
 
-#define	MPUSB_FAIL                  0
+#define MPUSB_FAIL                  0
 #define MPUSB_SUCCESS               1
 
 #define MP_WRITE                    0
