@@ -33,21 +33,20 @@ void __fastcall TMainForm::SALIRClick(TObject *Sender) {
 
 
 void __fastcall TMainForm::TRANSFERIRClick(TObject *Sender) {
-    usb.SetComando('R'); // resetear
+    usb.SetComando('R');  // resetear
     usb.direccion(0x50);
     usb.parametro(0x02);
     usb.EnviarDatos_Respuesta();
-    usb.SetComando('c'); // habilitar modo carga
+    usb.SetComando('c');  // habilitar modo carga
     usb.direccion(0x50);
     usb.parametro(0x03);
     usb.EnviarDatos_Respuesta();
 
-    cont_pp2.transferir_programa ();
+    cont_pp2.transferir_programa();
 }
 
 
-void __fastcall TMainForm::DISPAROClick(TObject *Sender)
-{
+void __fastcall TMainForm::DISPAROClick(TObject *Sender) {
     usb.SetComando('D');
     usb.direccion(0x50);
     usb.parametro(0x00);  // modo microprocesador
@@ -65,19 +64,19 @@ void __fastcall TMainForm::BotCargarClick(TObject *Sender) {
     char  *linea = NULL;
 
     if (OpenDialog1->Execute()) {
-    linea = (char *)malloc(sizeof(char)*4096);
+        linea = static_cast<char *>(malloc(sizeof(*linea)*4096));
 
-    // En este punto, obtengo el nombre del archivo
-    Label2->Caption = OpenDialog1->FileName;
+        // En este punto, obtengo el nombre del archivo
+        Label2->Caption = OpenDialog1->FileName;
 
-    // Obtengo el índice de la úlitma ´/´, para poder
-    // extraer únicamente el nombre del archivo, sin el path
-    j = 0;
+        // Obtengo el índice de la úlitma ´/´, para poder
+        // extraer únicamente el nombre del archivo, sin el path
+        j = 0;
 
-    for (i = 0; i < Label2->Caption.Length() - 1; i++) {
-        if (Label2->Caption.SubString(i, 1) == "\\") {
-            j = i+1;
-        }
+        for (i = 0; i < Label2->Caption.Length() - 1; i++) {
+            if (Label2->Caption.SubString(i, 1) == "\\") {
+                j = i+1;
+            }
     }
 
     strncpy(filename, Label2->Caption.c_str(), 4096);
@@ -113,7 +112,7 @@ void __fastcall TMainForm::TsClick(TObject *Sender) {
 
     if (mps * .0000001 != 0) {
         muestras = 1. / (mps * .0000001);
-        delta_t = 255 - (int) muestras;
+        delta_t = 255 - static_cast<int>(muestras);
         usb.parametro(delta_t);
         usb.EnviarDatos_Respuesta();
     }
@@ -193,7 +192,6 @@ void __fastcall TMainForm::ADSetConfig(int modoAdq, int k, int reset, int modo) 
     usb.EnviarDatos_Respuesta();
 }
 
-//---------------------------------------------------------------------------
 void __fastcall TMainForm::pedir_buffer() {
      DWORD EndTime, startTime, velocidad;
      TADModoAdquisicion mAdq;
@@ -225,7 +223,6 @@ void __fastcall TMainForm::pedir_buffer() {
 }
 
 
-//------------------------------------------------------------------------
 void __fastcall TMainForm::LeerUnCanal(int direccion, char * puntero) {
     DWORD EndTime, startTime, velocidad;
     unsigned int cantidad_bytes =0;
