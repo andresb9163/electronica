@@ -13,9 +13,9 @@
     <LIBFILES value=""/>
     <LIBRARIES value=""/>
     <SPARELIBS value="rtl.lib vcl.lib DLPortIO.lib"/>
-    <PACKAGES value="rtl.bpi vcl.bpi vclx.bpi bcbsmp.bpi dbrtl.bpi vcldb.bpi adortl.bpi
-      ibsmp.bpi bdertl.bpi vcldbx.bpi qrpt.bpi teeui.bpi teedb.bpi tee.bpi
-      dss.bpi teeqr.bpi ibxpress.bpi dsnap.bpi vclie.bpi inetdb.bpi inet.bpi
+    <PACKAGES value="rtl.bpi vcl.bpi vclx.bpi bcbsmp.bpi dbrtl.bpi vcldb.bpi adortl.bpi 
+      ibsmp.bpi bdertl.bpi vcldbx.bpi qrpt.bpi teeui.bpi teedb.bpi tee.bpi 
+      dss.bpi teeqr.bpi ibxpress.bpi dsnap.bpi vclie.bpi inetdb.bpi inet.bpi 
       nmfast.bpi webdsnap.bpi bcbie.bpi dclocx.bpi bcb2kaxserver.bpi DLPortIO.bpi"/>
     <PATHCPP value=".;"/>
     <PATHPAS value=".;"/>
@@ -33,9 +33,9 @@
     <OTHERFILES value=""/>
   </MACROS>
   <OPTIONS>
-    <IDLCFLAGS value="-src_suffix cpp -D_DEBUG -I&quot;C:\Program Files\Borland\CBuilder5\Projects\.&quot;
+    <IDLCFLAGS value="-src_suffix cpp -D_DEBUG -I&quot;C:\Program Files\Borland\CBuilder5\Projects\.&quot; 
       -I$(BCB)\include -I$(BCB)\include\vcl -boa"/>
-    <CFLAG1 value="-Od -H=c:\PROGRA~1\borland\CBUILD~1\lib\vcl60.csm -Hc -Vx -Ve -X- -r- -a8
+    <CFLAG1 value="-Od -H=c:\PROGRA~1\borland\CBUILD~1\lib\vcl60.csm -Hc -Vx -Ve -X- -r- -a8 
       -b- -k -y -v -vi- -c -tW -tWM"/>
     <PFLAGS value="-$YD -$W -$O- -$A8 -v -JPHNE -M"/>
     <RFLAGS value=""/>

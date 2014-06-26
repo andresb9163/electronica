@@ -56,7 +56,6 @@ void __fastcall TMainForm::DISPAROClick(TObject *Sender) {
 
 
 void __fastcall TMainForm::BotCargarClick(TObject *Sender) {
-    TStringList* Lista_Prog = new TStringList();  // Listado del programa
     char* filename = new char[4096];
     char  buffer[4096];
     int   i, j, nl;
@@ -77,21 +76,20 @@ void __fastcall TMainForm::BotCargarClick(TObject *Sender) {
             if (Label2->Caption.SubString(i, 1) == "\\") {
                 j = i+1;
             }
-    }
+        }
 
-    strncpy(filename, Label2->Caption.c_str(), 4096);
-    Label2->Caption = Label2->Caption.SubString(j, 255);
-    //  Punto donde se proccesa el archivo de texto
-    error = cont_pp2.compilar(filename, &nl, &linea);
-    if (error) {
-        Label2->Caption = "Ninguna";
-    } else {
-      // Agrego los comandos al listado de programa
-        Lista_Prog->Add(filename);
-        CmbProg->Items->AddStrings(Lista_Prog);
-    }
-    free(linea);
-    linea = NULL;
+        strncpy(filename, Label2->Caption.c_str(), 4096);
+        Label2->Caption = Label2->Caption.SubString(j, 255);
+        //  Punto donde se proccesa el archivo de texto
+        error = cont_pp2.compilar(filename, &nl, &linea);
+        if (error) {
+            Label2->Caption = "Ninguna";
+        } else {
+            // Agrego los comandos al listado de programa
+            CmbProg->Items->Add(filename);
+        }
+        free(linea);
+        linea = NULL;
     }
 }
 

@@ -209,7 +209,7 @@ int analizar_dato(const char* linea) {
  * Nota: No se efectua el control de que @pos sea un valor valido, porque
  *   confiamos en la inteligencia del programador.
  */
-int analizar_tiempo (const char* linea, int pos) {
+int analizar_tiempo(const char* linea, int pos) {
     int retcode = 0;
     char basura[TAM_BUFFER], tiempo[TAM_BUFFER];
 
@@ -323,143 +323,105 @@ int comando(char* linea, word nl_esp, word num_lazo, pp2_inst *inst) {
     return retcode;
 }
 
+void pp2::reset_micro(void) {}
+void pp2::modo_carga(void) {}
+void pp2::modo_micro(void) {}
+void pp2::inic_secuencia(void) {}
 
-
-
-void pp2::reset_micro (void) {
-  //usb.PP2ResetMicro();
-//  usb.direccion (PP2_CONTROL);
-//  usb.escritura (0x02);
-}
-
-void pp2::modo_carga (void) {
- // usb.PP2ModoCarga();
-    //direccion (PP2_CONTROL);
-  //      escritura (0x03);
-}
-
-void pp2::modo_micro (void) {
-//  usb.PP2ModoMicro();
-//  direccion (PP2_CONTROL);
-//        escritura (0x00);
-}
-
-void pp2::inic_secuencia (void) {
- // usb.PP2IniciarSecuencia();
-/*  usb.setComando(disp_sec);
-    usb.direccion (PP2_CONTROL);
-  usb.escritura (0x00); // Modo microprocesador
-  usb.escritura (0x80); // Disparamos la secuencia
-  usb.EnviarDatos();
-*/
-}
-
-int pp2::compilar (char *nombre_archivo, int *nl, char **e_linea) {
-        int     retcode = 0;
-        word        nl_esp = 0;
-        word        num_lazos = 0;
-    char        *ptr = NULL;
-        char        *codigo = NULL;
-    char        linea[TAM_BUFFER];
-        FILE        *archivo = NULL;
-        byte        cmd = 0x00;
-        pp2_inst    instruccion, inst_a;
+int pp2::compilar(char *nombre_archivo, int *nl, char **e_linea) {
+    int  retcode = 0;
+    word nl_esp = 0;
+    word num_lazos = 0;
+    char *ptr = NULL;
+    char *codigo = NULL;
+    char linea[TAM_BUFFER];
+    FILE *archivo = NULL;
+    byte cmd = 0x00;
+    pp2_inst instruccion, inst_a;
     stack<pp2_inst> pila;
 
-        codigo = (char*)malloc(sizeof(char));
-        codigo[0] = '\0';
-        archivo = fopen (nombre_archivo, "r");
-        if (archivo == NULL) {
-            retcode = -ENOARCHIVO;
-        } else {
+    codigo = static_cast<char *>(malloc(sizeof(*codigo)));
+    codigo[0] = '\0';
+    archivo = fopen(nombre_archivo, "r");
+    if (archivo == NULL) {
+        retcode = -ENOARCHIVO;
+    } else {
         while (fgets(linea, TAM_BUFFER, archivo) != NULL) {
-            codigo = (char*)realloc(codigo,
-                            (strlen(codigo)+strlen(linea)+2)*sizeof(char));
-                        codigo = strncat (codigo, linea, strlen(linea));
-                }
-                fclose (archivo);
-                ptr = codigo;
+            codigo = static_cast<char *>(realloc(codigo,
+                       (strlen(codigo) + strlen(linea) + 2) * sizeof(*codigo)));
+            codigo = strncat(codigo, linea, strlen(linea));
         }
+        fclose(archivo);
+        ptr = codigo;
+    }
 
-        *nl = 0;
-        programa.clear();
-        while (!retcode && strchr(ptr, DELIMITADOR) != NULL) {
-            sscanf (ptr, "%[^;];", linea);
-            ptr = (strchr(ptr, DELIMITADOR)) + 1;
-                if (strcmp(linea, "") != 0) {
-
-                    retcode = comando(linea, nl_esp, num_lazos, &instruccion);
-                        if (!retcode) {
+    *nl = 0;
+    programa.clear();
+    while (!retcode && strchr(ptr, DELIMITADOR) != NULL) {
+        sscanf(ptr, "%[^;];", linea);
+        ptr = (strchr(ptr, DELIMITADOR)) + 1;
+        if (strcmp(linea, "") != 0) {
+            retcode = comando(linea, nl_esp, num_lazos, &instruccion);
+            if (!retcode) {
                 programa.push_back(instruccion);
-                                nl_esp ++;
-                                cmd = instruccion.val_comando();
-                                if (cmd == CMD_LAZO_CODE) {
-                                    num_lazos ++;
-                                        if (num_lazos > MAX_NUM_LAZOS) {
-                                            retcode = -EMAXLAZOS;
-                                        } else {
-                        pila.push(instruccion);
-                                        }
-                                } else if (cmd == CMD_RETL_CODE) {
-                                    inst_a = pila.top();
-                                    if ((inst_a.val_comando()==CMD_LAZO_CODE)
-                                             && (instruccion.val_dato()==inst_a.val_nl())) {
-                                            pila.pop();
-                                             num_lazos --;
-                                        } else {
+                nl_esp++;
+                cmd = instruccion.val_comando();
+                if (cmd == CMD_LAZO_CODE) {
+                    num_lazos++;
+                    if (num_lazos > MAX_NUM_LAZOS) {
+                    retcode = -EMAXLAZOS;
+                    } else {
+                    pila.push(instruccion);
+                    }
+                } else if (cmd == CMD_RETL_CODE) {
+                    inst_a = pila.top();
+                    if ((inst_a.val_comando() == CMD_LAZO_CODE)
+                    && (instruccion.val_dato() == inst_a.val_nl())) {
+                        pila.pop();
+                        num_lazos--;
+                    } else {
                         retcode = -ESEMANTICO;
-                                        }
-                                }
-                                if (!retcode) {
-                                    *nl = *nl + 1;
-                                }
-                        }
+                    }
                 }
+                if (!retcode) {
+                *nl = *nl + 1;
+                }
+            }
         }
-        if (ptr[0] != '\0') {
-        retcode = -ESINTAXIS;
-        }
-        if (!retcode && !pila.empty()) {
-        inst_a = pila.top();
-        *nl = inst_a.val_nl();
-        retcode = -ESEMANTICO;
-        }
-        strncpy (*e_linea, linea, strlen(linea));
-        return retcode;
+    }
+    if (ptr[0] != '\0') {
+    retcode = -ESINTAXIS;
+    }
+    if (!retcode && !pila.empty()) {
+    inst_a = pila.top();
+    *nl = inst_a.val_nl();
+    retcode = -ESEMANTICO;
+    }
+    strncpy(*e_linea, linea, strlen(linea));
+    return retcode;
 }
 
 
-void pp2::transferir_programa (void)
-{
+void pp2::transferir_programa(void) {
     int i = 0, j = 0;
-  int cant = programa.size();
-  byte valor;
-
-
-
- //       usb.parametro(0);
- //       usb.EnviarDatos_Respuesta();
-
-
-  /** Cargamos el programa **/
-    for (i=0; i<cant; i++)
-    {
- //       usb.setComando(almacenar);
- //     usb.direccion(PP2_INSTRUC);
+    int cant = programa.size();
+    byte valor;
+    /** Cargamos el programa **/
+    for (i = 0; i < cant; i++) {
+        // usb.setComando(almacenar);
+        // usb.direccion(PP2_INSTRUC);
         usb.SetComando('A');
         usb.direccion(0x51);
-        for (j=0; j<8 ; j++)
-        {
+        for (j = 0; j < 8 ; j++) {
             valor = programa.front().val_byte(j);
             usb.parametro(valor);
-
         }
        usb.EnviarDatos_Respuesta();
 
          // T 52 00
 //  usb.EnviarDatos(transf,0x52,0x00);
 //  usb.PP2Transferir();
-       usb.SetComando('T'); // transferirla a la RAM
+       usb.SetComando('T');  // transferirla a la RAM
        usb.direccion(0x52);
        usb.parametro(0x00);
        usb.EnviarDatos_Respuesta();
@@ -471,11 +433,11 @@ void pp2::transferir_programa (void)
 }
 
 void pp2::mostrar_programa(void) {
-    int i=0;
+    int i = 0;
         int cant = programa.size();
 
-    for (i=0; i<cant; i++) {
-            printf ("%X %X %X %X %X %X %X %x \n",
+    for (i = 0; i < cant; i++) {
+            printf("%X %X %X %X %X %X %X %x \n",
                     programa.front().val_byte(7),
             programa.front().val_byte(6),
             programa.front().val_byte(5),
