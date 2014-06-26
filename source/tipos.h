@@ -3,7 +3,7 @@
 
 /** Define los tipos basicos **/
 
-typedef unsigned char	byte;
-typedef	unsigned int	word;
+typedef unsigned char byte;
+typedef	unsigned int  word;
 
-#endif /*TIPOS_H*/
+#endif // TIPOS_H

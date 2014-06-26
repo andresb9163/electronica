@@ -28,8 +28,8 @@ class PuertoUSB {
     unsigned char Canal3[MAXRXBUFF];     // Canal AB del AD       0x09
     unsigned char Canal4[MAXRXBUFF];     // Canal recepcion puerto serie
 
-    unsigned int CanalB[MAXRXBUFF];     // Canal B del AD
-    unsigned int CanalA[MAXRXBUFF];     // Canal A del AD
+    unsigned int CanalB[MAXRXBUFF];      // Canal B del AD
+    unsigned int CanalA[MAXRXBUFF];      // Canal A del AD
 
     PuertoUSB();
     DWORD GetSummary(void);
@@ -45,4 +45,4 @@ class PuertoUSB {
 };
 
 
-#endif
+#endif  // USB_H
