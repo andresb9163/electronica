@@ -4,7 +4,7 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="R_MOD_USB.exe"/>
-    <OBJFILES value="R_MOD_USB.obj Main.obj pp2.obj USB.obj pp2_comp.obj grafico.obj"/>
+    <OBJFILES value="R_MOD_USB.obj Main.obj pp2.obj USB.obj grafico.obj"/>
     <RESFILES value="R_MOD_USB.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
@@ -55,7 +55,6 @@
       <FILE FILENAME="Main.cpp" FORMNAME="MainForm" UNITNAME="Main" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="pp2.cpp" FORMNAME="" UNITNAME="pp2" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="USB.cpp" FORMNAME="" UNITNAME="USB" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
-      <FILE FILENAME="pp2_comp.cpp" FORMNAME="" UNITNAME="pp2_comp" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="grafico.cpp" FORMNAME="" UNITNAME="grafico" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
